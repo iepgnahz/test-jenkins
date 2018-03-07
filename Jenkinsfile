@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        AWS_ACCESS_KEY_ID     = credentials('123456')
-        AWS_SECRET_ACCESS_KEY = credentials('211111')
+        AWS_ACCESS_KEY_ID     = '123456'
+        AWS_SECRET_ACCESS_KEY = '211111'
     }
 
     stages {
@@ -18,6 +18,7 @@ pipeline {
     post {
         always {
             echo 'This will always run'
+            deleteDir() 
         }
 
         success {
