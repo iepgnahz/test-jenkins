@@ -1,8 +1,15 @@
 pipeline {
     agent any
+
+    environment {
+        AWS_ACCESS_KEY_ID     = credentials('123456')
+        AWS_SECRET_ACCESS_KEY = credentials('211111')
+    }
+
     stages {
         stage('build') {
             steps {
+                echo AWS_ACCESS_KEY_ID
                 sh './gradlew --version'
             }
         }
