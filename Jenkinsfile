@@ -13,12 +13,19 @@ pipeline {
                 sh './gradlew --version'
             }
         }
+
+        stage('deploy') {
+            steps {
+                input "Does the build look ok?"
+            }
+        }
+
     }
 
     post {
         always {
             echo 'This will always run'
-            deleteDir() 
+            deleteDir()
         }
 
         success {
