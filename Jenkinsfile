@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('env test') {
             steps {
-                echo "${parmas.Greeting} env.JENKINS_URL this is ${env.AWS_ACCESS_KEY_ID}"
+                echo "${params.Greeting} env.JENKINS_URL this is ${env.AWS_ACCESS_KEY_ID}"
             }
         }
 
