@@ -6,10 +6,19 @@ pipeline {
         AWS_SECRET_ACCESS_KEY = '211111'
     }
 
+    parameters {
+        string(name: 'Greeting', defaultValue: 'Hello')
+    }
+
     stages {
+        stage('env test') {
+            steps {
+                echo "${parmas.Greeting} env.JENKINS_URL this is ${env.AWS_ACCESS_KEY_ID}"
+            }
+        }
+
         stage('build') {
             steps {
-                echo AWS_ACCESS_KEY_ID
                 sh './gradlew --version'
             }
         }
