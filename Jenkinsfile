@@ -1,5 +1,6 @@
 pipeline {
-
+    agent any
+    
     environment {
         AWS_ACCESS_KEY_ID     = '123456'
         AWS_SECRET_ACCESS_KEY = '211111'
