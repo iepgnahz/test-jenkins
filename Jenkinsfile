@@ -1,4 +1,5 @@
 pipeline {
+
     environment {
         AWS_ACCESS_KEY_ID     = '123456'
         AWS_SECRET_ACCESS_KEY = '211111'
@@ -13,6 +14,10 @@ pipeline {
         }
 
         stage('deploy') {
+            when {
+                echo currentBuild.result
+            }
+
             steps {
                 input "Does the build look ok?"
             }
