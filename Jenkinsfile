@@ -22,6 +22,7 @@ pipeline {
             }
 
             steps {
+                echo currentBuild.result
                 input "Does the build look ok?"
             }
         }
