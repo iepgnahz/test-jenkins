@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('env test') {
             steps {
-                echo "${params.Greeting} ${env.BUILD_ID} this is ${env.AWS_ACCESS_KEY_ID}"
+                echo "${params.Greeting} ${env.BUILD_ID} this is ${AWS_ACCESS_KEY_ID}"
             }
         }
 
