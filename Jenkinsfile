@@ -1,41 +1,18 @@
 pipeline {
     agent any
 
-    environment {
-        AWS_ACCESS_KEY_ID     = '123456'
-        AWS_SECRET_ACCESS_KEY = '211111'
-    }
-
-    parameters {
-        string(name: 'Greeting', defaultValue: 'Hello')
-    }
-
     stages {
-        stage('env test') {
-            steps {
-                echo "${params.Greeting} ${env.BUILD_ID} this is ${AWS_ACCESS_KEY_ID}"
-            }
-        }
-
         stage('build') {
-            steps {
-                sh './gradlew --version'
-            }
-        }
-
-        stage('deploy') {
-            when {
-                expression {
-                    currentBuild.result == null || currentBuild.result == 'SUCCESS'
+            agent {
+                docker {
+                    image 'java:8'
+                    args '-v ./*:/app/*'
                 }
             }
-
             steps {
-                echo currentBuild.result
-                input "Does the build look ok?"
+               sh "cd /app && ./gradlew test"
             }
         }
-
     }
 
     post {
