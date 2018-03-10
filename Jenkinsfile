@@ -1,16 +1,9 @@
 pipeline {
-    agent {
-        docker {
-            image 'java:8'
-            args '-v ./*:/app/*'
-        }
-    }
+    agent any
 
     stages {
         stage('build') {
-            steps {
-               sh "cd /app && ./gradlew test"
-            }
+            sh "whoami"
         }
     }
 
