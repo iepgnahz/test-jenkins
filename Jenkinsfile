@@ -1,14 +1,13 @@
 pipeline {
-    agent none
+    agent {
+        docker {
+            image 'java:8'
+            args '-v ./*:/app/*'
+        }
+    }
 
     stages {
         stage('build') {
-            agent {
-                docker {
-                    image 'java:8'
-                    args '-v ./*:/app/*'
-                }
-            }
             steps {
                sh "cd /app && ./gradlew test"
             }
