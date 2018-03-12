@@ -6,6 +6,13 @@ pipeline {
     }
 
     stages {
+        agent {
+            docker {
+               image 'java:8'
+               label 'provider test'
+               args  '-v ./**:/app/**'
+            }
+        }
         stage('build') {
             steps {
                 sh "docker ps"
