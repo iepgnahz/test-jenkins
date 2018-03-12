@@ -12,19 +12,6 @@ pipeline {
                 sh "echo $PATH"
             }
         }
-
-        stage('build') {
-            agent {
-                docker {
-                   image 'java:8'
-                   args  '-v ./**:/app/**'
-                }
-            }
-            steps {
-                sh "docker ps"
-                sh "echo "
-            }
-        }
     }
 
     post {
