@@ -1,11 +1,18 @@
 pipeline {
-    agent none
+    agent any
 
     environment {
         PATH = "${PATH}:/usr/local/bin"
     }
 
     stages {
+        stage('test') {
+            steps {
+                sh "docker ps"
+                sh "echo $PATH"
+            }
+        }
+
         stage('build') {
             agent {
                 docker {
@@ -15,6 +22,7 @@ pipeline {
             }
             steps {
                 sh "docker ps"
+                sh "echo "
             }
         }
     }
