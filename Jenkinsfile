@@ -1,14 +1,21 @@
 pipeline {
-    agent any
+    agent none
 
     environment {
         PATH = "${PATH}:/usr/local/bin"
     }
 
     stages {
-        stage('test') {
+        stage('build') {
+            agent {
+                docker {
+                   image 'java:8'
+                   args  '-v ./**:/app/**'
+                }
+            }
             steps {
-                sh "echo $PATH"
+                sh "docker ps"
+                
             }
         }
     }
