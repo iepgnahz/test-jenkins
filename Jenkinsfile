@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh "export PATH"
+                sh "export PATH && whoami"
                 sh "docker ps"
             }
         }
