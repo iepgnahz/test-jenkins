@@ -8,8 +8,8 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh "/usr/local/bin/docker ps"
-
+                sh "export PATH"
+                sh "docker ps"
             }
         }
     }
