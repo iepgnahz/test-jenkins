@@ -9,7 +9,7 @@ pipeline {
         stage('build') {
             steps {
                 sh "export PATH && whoami"
-                sh "docker ps"
+                sh "sudo docker ps"
             }
         }
     }
