@@ -2,6 +2,13 @@ pipeline {
     agent any
 
     stages {
+
+        stage('provider integration test') {
+            steps {
+                sh 'ls'
+            }
+        }
+
         stage('provider integration test') {
             agent {
                 dockerfile true
