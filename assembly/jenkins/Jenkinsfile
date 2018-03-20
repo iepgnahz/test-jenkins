@@ -2,9 +2,12 @@ pipeline {
     agent any
 
     stages {
-        stage('build') {
+        stage('provider integration test') {
+            agent {
+                dockerfile true
+            }
             steps {
-                sh "docker ps"
+                echo "aaaa"
             }
         }
     }
