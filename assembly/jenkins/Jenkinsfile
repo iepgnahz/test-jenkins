@@ -1,15 +1,10 @@
 pipeline {
     agent any
 
-    environment {
-        PATH = "${PATH}:/usr/local/bin"
-    }
-
     stages {
         stage('build') {
             steps {
-                sh "export PATH && whoami"
-                sh "sudo docker ps"
+                sh "docker ps"
             }
         }
     }
