@@ -3,7 +3,7 @@ pipeline {
 
     stages {
 
-        stage('provider integration test') {
+        stage('start maven repo') {
             steps {
                 sh 'ls'
             }
